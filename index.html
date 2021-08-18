@@ -1,0 +1,165 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+
+</head> 
+
+<body> 
+
+  <h3>REST API With Javascript</h3> 
+
+  
+
+   
+
+  <script type="text/javascript"> 
+
+   
+
+    $(document).ready(function(){ 
+
+     
+
+     //The clientId and consumerSecret are the ones from the Connected App 
+
+     var clientId = "xxxxxxxxxxxx"; 
+
+     var consumerSecret = "xxxxxxxxxxx"; 
+
+     //Authorization endpoint 
+
+     var authEndPoint = "https://login.salesforce.com/services/oauth2/authorize"; 
+
+     //response_type must be set to token 
+
+     var responseType = "token"; 
+
+     //This is the callback URL from the connected app 
+
+     var redirectURI = "Your redirect URL page"; 
+
+     //Construct the URL with the required parameters 
+
+     var requestURL = authEndPoint+'?client_id='+clientId+'&response_type='+responseType+'&redirect_uri='+redirectURI; 
+
+     //redirect the user to the endpoint  
+
+     window.location = requestURL; 
+
+  
+
+  }) 
+
+</script> 
+
+  
+
+<script type="text/javascript"> 
+
+        $(document).ready(function(){ 
+
+       //Get access token. 
+
+       //Because the access token is a URL parameter it needs to be decoded 
+
+          var accessToken = decodeURI(GetURLParameter('access_token')); 
+
+          console.log(accessToken); 
+
+  
+
+           //Use this function to get the access token from the URL 
+
+           function GetURLParameter(sParam) 
+
+            { 
+
+              var mainURL = document.location+''; 
+
+              var pageUrls = mainURL.split('#'); 
+
+              var sURLVariables = pageUrls[1].split('&'); 
+
+              for (var i = 0; i < sURLVariables.length; i++)  
+
+                { 
+
+                  var sParameterName = sURLVariables[i].split('='); 
+
+                  if (sParameterName[0] == sParam)  
+
+                    { 
+
+                      return sParameterName[1]; 
+
+                      } 
+
+                  } 
+
+               } 
+
+    
+
+   //Create Account Record button click 
+
+  
+
+$( document ).ready(function(){ 
+
+    //replace the below url with your domain name or yourInstance.salesforce.com 
+
+    var requestUrl = 'https://eu5.salesforce.com/services/data/v20.0/sobjects/Account/'; 
+
+    
+
+    //send POST with ajax 
+
+    $.ajax({ 
+
+      type: 'POST', 
+
+      url : requestUrl, 
+
+      //add the authorization header including the access_token 
+
+      headers : { 
+
+        'Authorization' : 'Bearer '+accessToken, 
+
+         'Content-Type' : 'application/json' 
+
+                  }, 
+
+       data : accountInfoJson, 
+
+       success : function(response){ 
+
+                    displayAccountInfo(response); 
+
+                            }, 
+
+       error: function(response){ 
+
+                    displayError(response); 
+
+                            } 
+
+                        }); 
+
+  
+
+         } 
+
+</script>			 
+
+  
+
+  
+
+</body> 
+
+</html> 
