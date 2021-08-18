@@ -12,10 +12,7 @@
 
   <h3>REST API With Javascript In Salesforce</h3> 
 
-  <script type="text/javascript"> 
-          $(document).ready(function(){
-     
-     //The clientId and consumerSecret are the ones from the Connected App 
+ <script type="text/javascript">
 
      var clientId = "3MVG9fe4g9fhX0E59zc8IUfUd_EE0ISquEaSR5ZE.pXTW4vxViGeC5whqXnlsM_OUpmtZQX36d0wxVsdY1H4S"; 
 
@@ -38,12 +35,11 @@
      var requestURL = authEndPoint+'?client_id='+clientId+'&response_type='+responseType+'&redirect_uri='+redirectURI; 
 
      //redirect the user to the endpoint  
-
+   window.onload = function() {
+     
      window.location = requestURL; 
-
-  })
-
-</script> 
+   }
+  </script>
 
 </body> 
 
