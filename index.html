@@ -10,7 +10,7 @@
 
 <body> 
 
-  <h3>REST API With Javascript In Salesforce UAT</h3> 
+  <h3>REST API With Javascript In Salesforce</h3> 
 
   
 
@@ -36,20 +36,27 @@
      //This is the callback URL from the connected app 
 
      var redirectURI = "https://surajpatel007.github.io/mysite/"; 
-            
-            //window.location.replace("https://surajpatel007.github.io/mysite/")
 
      //Construct the URL with the required parameters 
 
      var requestURL = authEndPoint+'?client_id='+clientId+'&response_type='+responseType+'&redirect_uri='+redirectURI; 
 
-     //redirect the user to the endpoint
-            window.location = requestURL;
+     //redirect the user to the endpoint  
 
-    //window.location.replace(requestURL);
+     window.location = requestURL; 
 
   
 
+  })
+
+</script> 
+
+  
+
+<script type="text/javascript"> 
+
+        
+ $(document).ready(function(){
        //Get access token. 
 
        //Because the access token is a URL parameter it needs to be decoded 
