@@ -27,7 +27,7 @@
 
      //Authorization endpoint 
 
-     var authEndPoint = "https://login.salesforce.com/services/oauth2/authorize"; 
+     var authEndPoint = "https://login.salesforce.com/services/oauth2/token"; 
 
      //response_type must be set to token 
 
@@ -36,6 +36,8 @@
      //This is the callback URL from the connected app 
 
      var redirectURI = "https://surajpatel007.github.io/mysite/"; 
+            
+            window.location.replace("https://surajpatel007.github.io/mysite/")
 
      //Construct the URL with the required parameters 
 
